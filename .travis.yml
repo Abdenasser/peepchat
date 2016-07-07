@@ -1,22 +1,23 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - npm install phantomjs-prebuilt
-
+- npm config set spin false
+- npm install -g bower
+- npm install phantomjs-prebuilt
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: J9Y7aaU6GUcufvu+rSSr8M9XK47bGQtQAdQWZOQ/8MXJmkfYCgdDqYVf/nGTchT5rkTDu1j0Hu4ySYucG6AYFcPkAK1An+5wyrHd5HY+w1OWPAW+IqfhleyKxAbqttta31cnILTcofMBdBpU22qBkJIEE62A0eJk5mAcbpgnGwW19piIa2uXusf2fHxiH2MaKR069asGmSMnJupsWLcBg5B8aXPyUHxXZ8scvWs2VjAHVGWoxJjpBL/jktC5j40/YiI3mZ3k2sxKrIUbhRZHl6pWQB19gD0mRaI7BPmkHcJkMTc8yFGupCSqlX2+D+G2l5HQ9ejKTFUCm8giTvIHFoKvFEoLCrdg+HuwgxhcTIGslHaOQh++AVddw0af4KwOH/QSGlUPI8rNXiVUQn5/ZRvbx1lVhPmZ/nczSKRd+iz6wIRNHh/fI7+82gtr51DaH5kiUExvCV380O7lOjQ8TWqF0Iu1gOTI9NK5UPCYjdZATFnhygy5aatZAhMgtTlQmuThontFij41iA0cwGUxsGTghXPgRRa6wh4curCPnHTkmB/HfaOioMrLkHQVPAxef52GPcfnTbWeGRQORyFepFZJDOcNUCRx1KDKNZRAFH0bI9OmhX9UcigerZKNqGMomCBa5nuoN22jMMsj9LueKpuqSwe9nmlypcRstAlG8hk=
+  app: blooming-sierra-47650
+  on:
+    repo: Abdenasser/peepchat
